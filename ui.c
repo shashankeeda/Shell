@@ -140,28 +140,3 @@ int key_down(int count, int key)
 
     return 0;
 }
-
-char **command_completion(const char *text, int start, int end)
-{
-    /* Tell readline that if we don't find a suitable completion, it should fall
-     * back on its built-in filename completion. */
-    rl_attempted_completion_over = 0;
-
-    return rl_completion_matches(text, command_generator);
-}
-
-/**
- * This function is called repeatedly by the readline library to build a list of
- * possible completions. It returns one match per function call. Once there are
- * no more completions available, it returns NULL.
- */
-char *command_generator(const char *text, int state)
-{
-    // TODO: find potential matching completions for 'text.' If you need to
-    // initialize any data structures, state will be set to '0' the first time
-    // this function is called. You will likely need to maintain static/global
-    // variables to track where you are in the search so that you don't start
-    // over from the beginning.
-
-    return NULL;
-}
